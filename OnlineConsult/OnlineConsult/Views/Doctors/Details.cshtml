@@ -1,4 +1,4 @@
-﻿@model OnlineConsult.Models.Patient
+﻿@model OnlineConsult.Models.Doctor
 
 @{
     ViewBag.Title = "Details";
@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Patient</h4>
+    <h4>Doctor</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -35,14 +35,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.dateOfBirth)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.dateOfBirth)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.signupDate)
         </dt>
 
@@ -51,11 +43,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.gender)
+            @Html.DisplayNameFor(model => model.qualifications)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.gender)
+            @Html.DisplayFor(model => model.qualifications)
         </dd>
 
     </dl>

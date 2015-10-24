@@ -1,4 +1,4 @@
-﻿@model IEnumerable<OnlineConsult.Models.Patient>
+﻿@model IEnumerable<OnlineConsult.Models.Doctor>
 
 @{
     ViewBag.Title = "Index";
@@ -21,13 +21,10 @@
             @Html.DisplayNameFor(model => model.email)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.dateOfBirth)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.signupDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.gender)
+            @Html.DisplayNameFor(model => model.qualifications)
         </th>
         <th></th>
     </tr>
@@ -44,13 +41,10 @@
             @Html.DisplayFor(modelItem => item.email)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.dateOfBirth)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.signupDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.gender)
+            @Html.DisplayFor(modelItem => item.qualifications)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

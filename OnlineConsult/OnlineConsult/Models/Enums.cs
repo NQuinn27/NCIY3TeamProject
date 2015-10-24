@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
+﻿
 namespace OnlineConsult.Enums
 {
 
@@ -10,6 +6,12 @@ namespace OnlineConsult.Enums
     {
         Male = 0,
         Female = 1
+    }
+
+    public enum UserType
+    {
+        Doctor = 0,
+        Patient = 1
     }
     
 }
