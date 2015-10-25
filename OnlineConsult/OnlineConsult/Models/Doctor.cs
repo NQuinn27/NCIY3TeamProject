@@ -1,6 +1,5 @@
 ﻿using System;
 using OnlineConsult.Enums;
-using System.Data.Entity;
 namespace OnlineConsult.Models
 {
     public class Doctor
@@ -12,9 +11,5 @@ namespace OnlineConsult.Models
         public DateTime signupDate { get; set; }
         public string qualifications { get; set; }
 
-        public class DoctorDBContext : DbContext
-        {
-            public DbSet<Doctor> Doctors { get; set; }
-        }
     }
 }

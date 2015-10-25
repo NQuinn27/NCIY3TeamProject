@@ -1,6 +1,5 @@
 ﻿using System;
 using OnlineConsult.Enums;
-using System.Data.Entity;
 
 namespace OnlineConsult.Models
 {
@@ -14,11 +13,6 @@ namespace OnlineConsult.Models
         public DateTime dateOfBirth { get; set; }
         public DateTime signupDate { get; set; }
         public Gender gender { get; set; }
-
-        public class PatientDBContext : DbContext
-        {
-            public DbSet<Patient> Patients { get; set; }
-        }
 
     }
 }

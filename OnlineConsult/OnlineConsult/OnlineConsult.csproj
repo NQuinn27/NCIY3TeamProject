@@ -175,28 +175,22 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="MigDoctor\201510241436317_initial.cs" />
-    <Compile Include="MigDoctor\201510241436317_initial.Designer.cs">
-      <DependentUpon>201510241436317_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201510251315431_InitialCreate.cs" />
+    <Compile Include="Migrations\201510251315431_InitialCreate.Designer.cs">
+      <DependentUpon>201510251315431_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="MigDoctor\Configuration.cs" />
-    <Compile Include="MigPatient\201510241424212_initial.cs" />
-    <Compile Include="MigPatient\201510241424212_initial.Designer.cs">
-      <DependentUpon>201510241424212_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201510251323235_Seed1.cs" />
+    <Compile Include="Migrations\201510251323235_Seed1.Designer.cs">
+      <DependentUpon>201510251323235_Seed1.cs</DependentUpon>
     </Compile>
-    <Compile Include="MigPatient\201510241427489_initial1.cs" />
-    <Compile Include="MigPatient\201510241427489_initial1.Designer.cs">
-      <DependentUpon>201510241427489_initial1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MigPatient\Configuration.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Doctor.cs" />
-    <Compile Include="Models\DoctorDbContext.cs" />
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\OCDbContext.cs" />
     <Compile Include="Models\Patient.cs" />
-    <Compile Include="Models\PatientDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -280,14 +274,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MigDoctor\201510241436317_initial.resx">
-      <DependentUpon>201510241436317_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201510251315431_InitialCreate.resx">
+      <DependentUpon>201510251315431_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MigPatient\201510241424212_initial.resx">
-      <DependentUpon>201510241424212_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MigPatient\201510241427489_initial1.resx">
-      <DependentUpon>201510241427489_initial1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201510251323235_Seed1.resx">
+      <DependentUpon>201510251323235_Seed1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
