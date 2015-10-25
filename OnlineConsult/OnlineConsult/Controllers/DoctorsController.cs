@@ -12,7 +12,7 @@ namespace OnlineConsult.Controllers
 {
     public class DoctorsController : Controller
     {
-        private OCDbContext db = new OCDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Doctors
         public ActionResult Index()

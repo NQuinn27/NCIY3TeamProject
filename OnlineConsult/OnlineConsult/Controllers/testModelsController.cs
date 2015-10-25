@@ -10,107 +10,107 @@ using OnlineConsult.Models;
 
 namespace OnlineConsult.Controllers
 {
-    public class PatientsController : Controller
+    public class testModelsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Patients
+        // GET: testModels
         public ActionResult Index()
         {
-            return View(db.Patients.ToList());
+            return View(db.tests.ToList());
         }
 
-        // GET: Patients/Details/5
+        // GET: testModels/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Patient patient = db.Patients.Find(id);
-            if (patient == null)
+            testModel testModel = db.tests.Find(id);
+            if (testModel == null)
             {
                 return HttpNotFound();
             }
-            return View(patient);
+            return View(testModel);
         }
 
-        // GET: Patients/Create
+        // GET: testModels/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Patients/Create
+        // POST: testModels/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,firstName,lastName,email,dateOfBirth,signupDate,gender")] Patient patient)
+        public ActionResult Create([Bind(Include = "ID,name")] testModel testModel)
         {
             if (ModelState.IsValid)
             {
-                db.Patients.Add(patient);
+                db.tests.Add(testModel);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(patient);
+            return View(testModel);
         }
 
-        // GET: Patients/Edit/5
+        // GET: testModels/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Patient patient = db.Patients.Find(id);
-            if (patient == null)
+            testModel testModel = db.tests.Find(id);
+            if (testModel == null)
             {
                 return HttpNotFound();
             }
-            return View(patient);
+            return View(testModel);
         }
 
-        // POST: Patients/Edit/5
+        // POST: testModels/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,firstName,lastName,email,dateOfBirth,signupDate,gender")] Patient patient)
+        public ActionResult Edit([Bind(Include = "ID,name")] testModel testModel)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(patient).State = EntityState.Modified;
+                db.Entry(testModel).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(patient);
+            return View(testModel);
         }
 
-        // GET: Patients/Delete/5
+        // GET: testModels/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Patient patient = db.Patients.Find(id);
-            if (patient == null)
+            testModel testModel = db.tests.Find(id);
+            if (testModel == null)
             {
                 return HttpNotFound();
             }
-            return View(patient);
+            return View(testModel);
         }
 
-        // POST: Patients/Delete/5
+        // POST: testModels/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Patient patient = db.Patients.Find(id);
-            db.Patients.Remove(patient);
+            testModel testModel = db.tests.Find(id);
+            db.tests.Remove(testModel);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

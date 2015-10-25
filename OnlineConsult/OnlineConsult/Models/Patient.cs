@@ -1,5 +1,6 @@
 ﻿using System;
 using OnlineConsult.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace OnlineConsult.Models
 {
@@ -13,6 +14,10 @@ namespace OnlineConsult.Models
         public DateTime dateOfBirth { get; set; }
         public DateTime signupDate { get; set; }
         public Gender gender { get; set; }
+
+        [Key]
+        public int applicationUserId { get; set; }
+
 
     }
 }
