@@ -29,5 +29,9 @@ namespace OnlineConsult.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<testModel> tests {get;set;}
+        public DbSet<Patient> Patients { get; set; }
+        public DbSet<Doctor> Doctors { get; set; }
     }
 }

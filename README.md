@@ -18,15 +18,15 @@ Build the project, ensure no errors. At this point you should be able to navigat
 
 Open the package console (Tools > NuGet Package Manager > Package Manager Console). Run the following command in the package manager:
 
-    update-database -configuration OnlineConsult.Migrations.Configuration
+    update-database -configuration OnlineConsult.MigApp.Configuration
 
 After a successful seed you should have some data in the database for Doctors and Patients. Anyone can add to this data in the Migrations\Configuration.cs file.
 
 #### Changing the models
 Any change in the model must be followed by a migration. Name the migration according to what attributes were added. In package manager console run:
 
-    Add-Migration -configuration OnlineConsult.Migrations.Configuration MIGRATION_NAME
+    Add-Migration -configuration OnlineConsult.MigApp.Configuration MIGRATION_NAME
 
 Then,
 
-    update-database -configuration OnlineConsult.Migrations.Configuration
+    update-database -configuration OnlineConsult.MigApp.Configuration
