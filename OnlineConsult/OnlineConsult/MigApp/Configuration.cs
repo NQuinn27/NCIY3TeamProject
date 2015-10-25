@@ -17,6 +17,22 @@ namespace OnlineConsult.MigApp
 
         protected override void Seed(OnlineConsult.Models.ApplicationDbContext context)
         {
+
+            context.Roles.AddOrUpdate(
+                p => p.Name,
+                new Role
+                {
+                    Name = "Admin"
+                },
+                new Role
+                {
+                    Name = "Doctor"
+                },
+                new Role
+                {
+                    Name = "Patient"
+                }
+            );
             context.Patients.AddOrUpdate(
                   p => p.firstName,
                   new Patient
