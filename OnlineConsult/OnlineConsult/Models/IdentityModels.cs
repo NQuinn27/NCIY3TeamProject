@@ -33,5 +33,6 @@ namespace OnlineConsult.Models
         public DbSet<testModel> tests {get;set;}
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Doctor> Doctors { get; set; }
+        public DbSet<Role> Roles { get; set; }
     }
 }
