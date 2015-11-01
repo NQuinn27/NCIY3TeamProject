@@ -1,0 +1,34 @@
+﻿@model OnlineConsult.Models.Patient
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    OnlineConsult.Models.Patient p = (OnlineConsult.Models.Patient)ViewData["Patient"];
+    IEnumerable<OnlineConsult.Models.Consult> consultations = (IEnumerable<OnlineConsult.Models.Consult>)ViewData["Consultations"];
+}
+
+<h1>Hello, @Html.DisplayFor(Model => p.firstName)</h1>
+
+@* Display all of the upcoming consultations for the user *@
+<h2>Your Upcoming Consultations</h2>
+<table class="table">
+    <tr>
+        <th>
+            Date
+        </th>
+        <th>
+            Doctor Name
+        </th>
+        <th>
+            Notes
+        </th>
+    </tr>
+
+    @foreach (OnlineConsult.Models.Consult c in consultations)
+    {
+        <tr>
+            <td>@c.ScheduledTime</td>
+            <td>@c.DoctorUID</td>
+            <td>@c.Notes</td>
+        </tr>
+    }
+</table>

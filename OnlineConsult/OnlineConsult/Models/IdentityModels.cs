@@ -9,6 +9,7 @@ namespace OnlineConsult.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        public Role AppRole { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -33,6 +34,7 @@ namespace OnlineConsult.Models
         public DbSet<testModel> tests {get;set;}
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Doctor> Doctors { get; set; }
-        public DbSet<Role> Roles { get; set; }
+        public DbSet<Role> AppRoles { get; set; }
+        public DbSet<Consult> Consultations { get; set; }
     }
 }

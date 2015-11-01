@@ -18,7 +18,7 @@ namespace OnlineConsult.MigApp
         protected override void Seed(OnlineConsult.Models.ApplicationDbContext context)
         {
 
-            context.Roles.AddOrUpdate(
+            context.AppRoles.AddOrUpdate(
                 p => p.Name,
                 new Role
                 {
@@ -37,33 +37,60 @@ namespace OnlineConsult.MigApp
                   p => p.firstName,
                   new Patient
                   {
+                      UID = Guid.NewGuid(),
                       firstName = "Andrew",
                       lastName = "Peters",
                       dateOfBirth = DateTime.Parse("1/1/1970"),
                       signupDate = DateTime.Parse("1/1/2015"),
                       gender = Enums.Gender.Male,
-                      email = "name@domain.com"
+                      email = "name+1@domain.com"
                   },
                   new Patient
                   {
+                      UID = Guid.NewGuid(),
                       firstName = "Brice",
                       lastName = "Lambson",
                       dateOfBirth = DateTime.Parse("1/1/1970"),
                       signupDate = DateTime.Parse("1/1/2015"),
                       gender = Enums.Gender.Male,
-                      email = "name@domain.com"
+                      email = "nam+2e@domain.com"
                   },
                   new Patient
                   {
+                      UID = Guid.NewGuid(),
                       firstName = "Rowan",
                       lastName = "Miller",
                       dateOfBirth = DateTime.Parse("1/1/1970"),
                       signupDate = DateTime.Parse("1/1/2015"),
                       gender = Enums.Gender.Male,
-                      email = "name@domain.com"
+                      email = "name+4@domain.com"
                   }
                 );
+            context.Consultations.AddOrUpdate(
+                c => c.UID,
+                new Consult
+                {
+                    PatientUID = new System.Guid("3617a009-d402-4262-a4c7-28ca963f3dcd"),
+                    DoctorUID = new System.Guid("3617a009-d402-4262-a4c7-28ca963f3dcd"),
+                    ScheduledTime = DateTime.Now,
+                    Notes = "Some Notes"
+                },
+                new Consult
+                {
+                    PatientUID = new System.Guid("3617a009-d402-4262-a4c7-28ca963f3dcd"),
+                    DoctorUID = new System.Guid("3617a009-d402-4262-a4c7-28ca963f3dcd"),
+                    ScheduledTime = DateTime.Now,
+                    Notes = "Some Notes"
+                },
+                new Consult
+{
+    PatientUID = new System.Guid("3617a009-d402-4262-a4c7-28ca963f3dcd"),
+    DoctorUID = new System.Guid("3617a009-d402-4262-a4c7-28ca963f3dcd"),
+    ScheduledTime = DateTime.Now,
+    Notes = "Some Notes"
+}
 
+            );
             context.Doctors.AddOrUpdate(
                 p => p.firstName,
                 new Doctor
