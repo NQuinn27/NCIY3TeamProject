@@ -18,7 +18,7 @@ namespace OnlineConsult.MigApp
         protected override void Seed(OnlineConsult.Models.ApplicationDbContext context)
         {
 
-            context.Roles.AddOrUpdate(
+            context.AppRoles.AddOrUpdate(
                 p => p.Name,
                 new Role
                 {
@@ -42,7 +42,7 @@ namespace OnlineConsult.MigApp
                       dateOfBirth = DateTime.Parse("1/1/1970"),
                       signupDate = DateTime.Parse("1/1/2015"),
                       gender = Enums.Gender.Male,
-                      email = "name@domain.com"
+                      email = "name+1@domain.com"
                   },
                   new Patient
                   {
@@ -51,7 +51,7 @@ namespace OnlineConsult.MigApp
                       dateOfBirth = DateTime.Parse("1/1/1970"),
                       signupDate = DateTime.Parse("1/1/2015"),
                       gender = Enums.Gender.Male,
-                      email = "name@domain.com"
+                      email = "nam+2e@domain.com"
                   },
                   new Patient
                   {
@@ -60,7 +60,7 @@ namespace OnlineConsult.MigApp
                       dateOfBirth = DateTime.Parse("1/1/1970"),
                       signupDate = DateTime.Parse("1/1/2015"),
                       gender = Enums.Gender.Male,
-                      email = "name@domain.com"
+                      email = "name+4@domain.com"
                   }
                 );
 
