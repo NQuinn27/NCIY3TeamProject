@@ -35,5 +35,6 @@ namespace OnlineConsult.Models
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Role> AppRoles { get; set; }
+        public DbSet<Consult> Consultations { get; set; }
     }
 }

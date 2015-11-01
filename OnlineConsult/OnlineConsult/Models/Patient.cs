@@ -7,24 +7,22 @@ namespace OnlineConsult.Models
 {
     public class Patient
     {
-        static int nextId;
-
-        public int ID { get; set; }
+        [Key]
+        public Guid UID { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
-        [Key]
         public string email { get; set; }
         public DateTime dateOfBirth { get; set; }
         public DateTime signupDate { get; set; }
         public Gender gender { get; set; }
 
         public Patient() {
-            this.ID = Interlocked.Increment(ref nextId);
+            this.UID = Guid.NewGuid();
         }
 
         public Patient(string firstName, string lastName, string email, DateTime dateOfBirth, Gender gender)
         {
-            this.ID = Interlocked.Increment(ref nextId);
+            this.UID = Guid.NewGuid();
             this.firstName = firstName;
             this.lastName = lastName;
             this.email = email;

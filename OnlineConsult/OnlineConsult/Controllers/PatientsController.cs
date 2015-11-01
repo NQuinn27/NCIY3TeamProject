@@ -10,6 +10,7 @@ using OnlineConsult.Models;
 using Microsoft.AspNet.Identity.Owin;
 using System.Data.Entity.Validation;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
 
 namespace OnlineConsult.Controllers
 {
@@ -60,7 +61,14 @@ namespace OnlineConsult.Controllers
         {
             ViewData["registerModel"] = _registerViewModel;
             ViewData["loginViewModel"] = _loginViewModel;
+
+            var patient = GetCurrentPatient();
+            if (patient != null) {
+                return RedirectToAction("Home");
+            }
+
             return View();
+            
         }
 
         public ActionResult List()
@@ -172,6 +180,73 @@ namespace OnlineConsult.Controllers
             base.Dispose(disposing);
         }
 
+        //GET Patients/Home
+        public ActionResult Home()
+        {
+            bool val1 = System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
+            if (val1 == false)
+            {
+                RedirectToLocal("Patients");
+            }
+
+            var patient = GetCurrentPatient();
+
+            var consulatations = db.Consultations.Where(c => c.PatientUID == patient.UID);
+
+            ViewData["Patient"] = patient;
+            ViewData["Consultations"] = consulatations;
+            return View();
+
+        }
+
+        private Patient GetCurrentPatient()
+        {
+            string currentUserId = User.Identity.GetUserId();
+            ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == currentUserId);
+            if (currentUser == null)
+            {
+                return null;
+            }
+            string email = currentUser.Email;
+            Patient patient = db.Patients.FirstOrDefault(p => p.email == email);
+            return patient;
+        }
+
+        //POST: Patients/Login
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Login(LoginViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+                switch (result)
+                {
+                    case SignInStatus.Success:
+                        //Find a Patient to back it up
+                        var patient= db.Patients
+                                    .Where(b => b.email == model.Email)
+                                    .FirstOrDefault();
+                        if (patient == null) {
+                            //No patient backin this login
+                            ViewBag["Error"] = "No Patient Found";
+                            return View();
+                        }
+
+                        return RedirectToLocal("/Patients/Home");
+                    case SignInStatus.LockedOut:
+                        return View("Lockout");
+                    case SignInStatus.RequiresVerification:
+                        return RedirectToAction("SendCode", new { ReturnUrl = "/Patients/Home", RememberMe = model.RememberMe });
+                    case SignInStatus.Failure:
+                    default:
+                        ModelState.AddModelError("", "Invalid login attempt.");
+                        return View(model);
+                }
+            }
+            return View(model);
+        }
         // POST: /Patients/Register
         [HttpPost]
         [AllowAnonymous]
@@ -190,7 +265,6 @@ namespace OnlineConsult.Controllers
                     var patient = new Patient(model.FirstName, model.LastName, model.Email, model.DateOfBirth, model.Gender);
                     if (patient != null)
                     {
-
                         try
                         {
                             // Your code...
@@ -213,12 +287,23 @@ namespace OnlineConsult.Controllers
                             throw;
                         }
                     }
-
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Home");
                 }
+
+                ViewData["Errors"] = result.Errors;
+                return View("index");
             }
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return View("index");
+        }
+
+        private ActionResult RedirectToLocal(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            return RedirectToAction("Index", "Home");
         }
     }
 }

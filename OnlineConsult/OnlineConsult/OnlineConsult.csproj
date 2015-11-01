@@ -171,7 +171,6 @@
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\PatientRegisterController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\testModelsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -185,6 +184,18 @@
     <Compile Include="MigApp\201511011544060_Remove_appuser-ref.Designer.cs">
       <DependentUpon>201511011544060_Remove_appuser-ref.cs</DependentUpon>
     </Compile>
+    <Compile Include="MigApp\201511011811443_add_guid_id.cs" />
+    <Compile Include="MigApp\201511011811443_add_guid_id.Designer.cs">
+      <DependentUpon>201511011811443_add_guid_id.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MigApp\201511012146458_add_consultations.cs" />
+    <Compile Include="MigApp\201511012146458_add_consultations.Designer.cs">
+      <DependentUpon>201511012146458_add_consultations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MigApp\201511012149120_add_consultations_2.cs" />
+    <Compile Include="MigApp\201511012149120_add_consultations_2.Designer.cs">
+      <DependentUpon>201511012149120_add_consultations_2.cs</DependentUpon>
+    </Compile>
     <Compile Include="MigApp\Configuration.cs" />
     <Compile Include="Migrations\201510251315431_InitialCreate.cs" />
     <Compile Include="Migrations\201510251315431_InitialCreate.Designer.cs">
@@ -196,6 +207,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Consult.cs" />
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -280,10 +292,10 @@
     <Content Include="Views\testModels\Details.cshtml" />
     <Content Include="Views\testModels\Edit.cshtml" />
     <Content Include="Views\testModels\Index.cshtml" />
-    <Content Include="Views\PatientRegister\index.cshtml" />
-    <Content Include="Views\PatientRegister\Register.cshtml" />
     <Content Include="Views\Patients\List.cshtml" />
     <Content Include="Views\Patients\PatientRegisterPartial.cshtml" />
+    <Content Include="Views\Patients\PatientLoginPartial.cshtml" />
+    <Content Include="Views\Patients\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -302,6 +314,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MigApp\201511011544060_Remove_appuser-ref.resx">
       <DependentUpon>201511011544060_Remove_appuser-ref.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MigApp\201511011811443_add_guid_id.resx">
+      <DependentUpon>201511011811443_add_guid_id.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MigApp\201511012146458_add_consultations.resx">
+      <DependentUpon>201511012146458_add_consultations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MigApp\201511012149120_add_consultations_2.resx">
+      <DependentUpon>201511012149120_add_consultations_2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510251315431_InitialCreate.resx">
       <DependentUpon>201510251315431_InitialCreate.cs</DependentUpon>
