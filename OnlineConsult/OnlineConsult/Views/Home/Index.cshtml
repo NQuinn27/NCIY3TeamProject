@@ -61,25 +61,10 @@
                         <p class="lead">New doctors or patients can signup below.</p>
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <form action="#" role="form">
-                                    <div class="input-group">
-                                        <input type="email" class="form-control" placeholder="Email Address" required>
-                                        <br /><br />
-                                        <input type="password" class="form-control" placeholder="Password" required>
-                                        <br /><br />
-                                        <input type="password" class="form-control" placeholder="Confirm Password" required>
-                                        <br /><br />
-                                        <input type="password" class="form-control" placeholder="First Name" required>
-                                        <br /><br />
-                                        <input type="password" class="form-control" placeholder="Surname" required>
-                                        <br /><br />
-                                        <input type="radio" name="type" value="patient" checked> Patient
-                                        <input type="radio" name="type" value="doctor" checked> Doctor
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default" type="submit">Sign Up</button>
-                                        </span>
-                                    </div>
-                                </form>
+                                <!--Patient Signup-->
+                                <p><a href="/Patients" class="btn btn-primary btn-lg">I am a Patient</a></p>
+                                <!--Doctor Signup-->
+                                <p><a href="/Doctors" class="btn btn-primary btn-lg">I am a Doctor</a></p>
                             </div>
                         </div>
                     </div>
@@ -92,15 +77,7 @@
                         <p class="lead">Returning patients can log in here.</p>
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <form action="#" role="form">
-                                    <div class="input-group">
-                                        <input type="email" class="form-control" placeholder="Email Address" required>
-                                        <input type="password" class="form-control" placeholder="Password" required>
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default" type="submit">Login</button>
-                                        </span>
-                                    </div>
-                                </form>
+                                @Html.Partial("~/Views/Patients/PatientLoginPartial.cshtml")
                             </div>
                         </div>
                     </div>
@@ -130,6 +107,4 @@
             </div>
         </div>
     </section>
-    
-
 </div>

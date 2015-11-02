@@ -71,30 +71,30 @@ namespace OnlineConsult.MigApp
                 new Consult
                 {
                     PatientUID = new System.Guid("3617a009-d402-4262-a4c7-28ca963f3dcd"),
-                    DoctorUID = new System.Guid("3617a009-d402-4262-a4c7-28ca963f3dcd"),
+                    DoctorUID = new Guid("7617a009-d402-4262-a4c7-28ca963f3dcd"),
                     ScheduledTime = DateTime.Now,
                     Notes = "Some Notes"
                 },
                 new Consult
                 {
                     PatientUID = new System.Guid("3617a009-d402-4262-a4c7-28ca963f3dcd"),
-                    DoctorUID = new System.Guid("3617a009-d402-4262-a4c7-28ca963f3dcd"),
+                    DoctorUID = new Guid("7617a009-d402-4262-a4c7-28ca963f3dcd"),
                     ScheduledTime = DateTime.Now,
                     Notes = "Some Notes"
                 },
                 new Consult
-{
-    PatientUID = new System.Guid("3617a009-d402-4262-a4c7-28ca963f3dcd"),
-    DoctorUID = new System.Guid("3617a009-d402-4262-a4c7-28ca963f3dcd"),
-    ScheduledTime = DateTime.Now,
-    Notes = "Some Notes"
-}
-
+                {
+                    PatientUID = new System.Guid("3617a009-d402-4262-a4c7-28ca963f3dcd"),
+                    DoctorUID = new Guid("7617a009-d402-4262-a4c7-28ca963f3dcd"),
+                    ScheduledTime = DateTime.Now,
+                    Notes = "Some Notes"
+                }
             );
             context.Doctors.AddOrUpdate(
                 p => p.firstName,
                 new Doctor
                 {
+                    UID = new Guid("7617a009-d402-4262-a4c7-28ca963f3dcd"),
                     firstName = "Michael",
                     lastName = "Molloy",
                     qualifications = "M.D",
@@ -104,6 +104,7 @@ namespace OnlineConsult.MigApp
 
                 new Doctor
                 {
+                    UID = Guid.NewGuid(),
                     firstName = "Thomas",
                     lastName = "Feighery",
                     qualifications = "M.D",
@@ -113,6 +114,7 @@ namespace OnlineConsult.MigApp
 
                 new Doctor
                 {
+                    UID =Guid.NewGuid(),
                     firstName = "Ann",
                     lastName = "Bruton",
                     qualifications = "M.D",

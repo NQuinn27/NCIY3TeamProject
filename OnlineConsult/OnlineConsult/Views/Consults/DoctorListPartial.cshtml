@@ -1,0 +1,17 @@
+﻿@model IEnumerable<OnlineConsult.Models.Doctor>
+@{ 
+    OnlineConsult.Models.ApplicationDbContext db = new OnlineConsult.Models.ApplicationDbContext();
+    List<OnlineConsult.Models.Doctor> d = db.Doctors.ToList();
+}
+
+<select name="listbox" id="listbox">
+    @foreach (var item in d)
+    {
+        <option value="@item.UID">
+            @item.fullName
+        </option>
+    }
+</select>
+
+
+
