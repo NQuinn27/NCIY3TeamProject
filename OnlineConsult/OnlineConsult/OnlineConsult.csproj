@@ -176,25 +176,25 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="MigApp\201510251314472_InitialCreate.cs" />
-    <Compile Include="MigApp\201510251314472_InitialCreate.Designer.cs">
-      <DependentUpon>201510251314472_InitialCreate.cs</DependentUpon>
+    <Compile Include="MigApp\201511011517286_add_patient_id_email.cs" />
+    <Compile Include="MigApp\201511011517286_add_patient_id_email.Designer.cs">
+      <DependentUpon>201511011517286_add_patient_id_email.cs</DependentUpon>
     </Compile>
-    <Compile Include="MigApp\201510251822322_testmig.cs" />
-    <Compile Include="MigApp\201510251822322_testmig.Designer.cs">
-      <DependentUpon>201510251822322_testmig.cs</DependentUpon>
+    <Compile Include="MigApp\201511011544060_Remove_appuser-ref.cs" />
+    <Compile Include="MigApp\201511011544060_Remove_appuser-ref.Designer.cs">
+      <DependentUpon>201511011544060_Remove_appuser-ref.cs</DependentUpon>
     </Compile>
-    <Compile Include="MigApp\201510251826253_addAll.cs" />
-    <Compile Include="MigApp\201510251826253_addAll.Designer.cs">
-      <DependentUpon>201510251826253_addAll.cs</DependentUpon>
+    <Compile Include="MigApp\201511011811443_add_guid_id.cs" />
+    <Compile Include="MigApp\201511011811443_add_guid_id.Designer.cs">
+      <DependentUpon>201511011811443_add_guid_id.cs</DependentUpon>
     </Compile>
-    <Compile Include="MigApp\201510251827218_addAllAgain.cs" />
-    <Compile Include="MigApp\201510251827218_addAllAgain.Designer.cs">
-      <DependentUpon>201510251827218_addAllAgain.cs</DependentUpon>
+    <Compile Include="MigApp\201511012146458_add_consultations.cs" />
+    <Compile Include="MigApp\201511012146458_add_consultations.Designer.cs">
+      <DependentUpon>201511012146458_add_consultations.cs</DependentUpon>
     </Compile>
-    <Compile Include="MigApp\201510251835503_addRoles.cs" />
-    <Compile Include="MigApp\201510251835503_addRoles.Designer.cs">
-      <DependentUpon>201510251835503_addRoles.cs</DependentUpon>
+    <Compile Include="MigApp\201511012149120_add_consultations_2.cs" />
+    <Compile Include="MigApp\201511012149120_add_consultations_2.Designer.cs">
+      <DependentUpon>201511012149120_add_consultations_2.cs</DependentUpon>
     </Compile>
     <Compile Include="MigApp\Configuration.cs" />
     <Compile Include="Migrations\201510251315431_InitialCreate.cs" />
@@ -207,12 +207,14 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Consult.cs" />
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OCDbContext.cs" />
     <Compile Include="Models\Patient.cs" />
+    <Compile Include="Models\PatientRegisterViewModel.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\testModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -290,6 +292,10 @@
     <Content Include="Views\testModels\Details.cshtml" />
     <Content Include="Views\testModels\Edit.cshtml" />
     <Content Include="Views\testModels\Index.cshtml" />
+    <Content Include="Views\Patients\List.cshtml" />
+    <Content Include="Views\Patients\PatientRegisterPartial.cshtml" />
+    <Content Include="Views\Patients\PatientLoginPartial.cshtml" />
+    <Content Include="Views\Patients\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -303,20 +309,20 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MigApp\201510251314472_InitialCreate.resx">
-      <DependentUpon>201510251314472_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="MigApp\201511011517286_add_patient_id_email.resx">
+      <DependentUpon>201511011517286_add_patient_id_email.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MigApp\201510251822322_testmig.resx">
-      <DependentUpon>201510251822322_testmig.cs</DependentUpon>
+    <EmbeddedResource Include="MigApp\201511011544060_Remove_appuser-ref.resx">
+      <DependentUpon>201511011544060_Remove_appuser-ref.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MigApp\201510251826253_addAll.resx">
-      <DependentUpon>201510251826253_addAll.cs</DependentUpon>
+    <EmbeddedResource Include="MigApp\201511011811443_add_guid_id.resx">
+      <DependentUpon>201511011811443_add_guid_id.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MigApp\201510251827218_addAllAgain.resx">
-      <DependentUpon>201510251827218_addAllAgain.cs</DependentUpon>
+    <EmbeddedResource Include="MigApp\201511012146458_add_consultations.resx">
+      <DependentUpon>201511012146458_add_consultations.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MigApp\201510251835503_addRoles.resx">
-      <DependentUpon>201510251835503_addRoles.cs</DependentUpon>
+    <EmbeddedResource Include="MigApp\201511012149120_add_consultations_2.resx">
+      <DependentUpon>201511012149120_add_consultations_2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510251315431_InitialCreate.resx">
       <DependentUpon>201510251315431_InitialCreate.cs</DependentUpon>
