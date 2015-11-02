@@ -2,25 +2,134 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>Online Consult</h1>
-    <p class="lead">We provide an online Patient-GP consultation environment</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<div class="container">
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-6">
+                    <div class="content">
+                        <div class="pull-middle">
+                            <h2 class="h1 page-header">Online Consulting</h2>
+                            <ul class="media-list">
+                                <li class="media">
+                                    <a class="media-left" href="#">
+                                        <span class="glyphicon glyphicon-time icon text-success"></span>
+                                    </a>
+                                    <div class="media-body">
+                                        <h3 class="media-heading">Saving You Time &amp; Money!</h3>
+                                        <p>Our service offers a quicker and cheaper alternative to your traditonal GP visit.</p>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <a class="media-left" href="#">
+                                        <span class="glyphicon glyphicon-cloud icon text-success"></span>
+                                    </a>
+                                    <div class="media-body">
+                                        <h3 class="media-heading">Choose your doctor</h3>
+                                        <p>Choose the doctor that suits your needs. Browes from our list of doctors and pick the one you want to see.</p>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <a class="media-left" href="#">
+                                        <span class="glyphicon glyphicon-lock icon text-success"></span>
+                                    </a>
+                                    <div class="media-body">
+                                        <h3 class="media-heading">Your privacy is our priority</h3>
+                                        <p>Take comfort in knowing that your data will be kept secure, providing you the same level of confidentiality as a traditonal consult would.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 text-center mt-100 mb-100">
+                    <div class="phone">
+                        <img class="img-responsive img-rounded" src="http://images.onlysimchas.com.s3.amazonaws.com/uploads/2015/09/doctor.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="content">
+                    <div class="pull-middle">
+                        <h1 class="page-header">New Users</h1>
+                        <p class="lead">New doctors or patients can signup below.</p>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <form action="#" role="form">
+                                    <div class="input-group">
+                                        <input type="email" class="form-control" placeholder="Email Address" required>
+                                        <br /><br />
+                                        <input type="password" class="form-control" placeholder="Password" required>
+                                        <br /><br />
+                                        <input type="password" class="form-control" placeholder="Confirm Password" required>
+                                        <br /><br />
+                                        <input type="password" class="form-control" placeholder="First Name" required>
+                                        <br /><br />
+                                        <input type="password" class="form-control" placeholder="Surname" required>
+                                        <br /><br />
+                                        <input type="radio" name="type" value="patient" checked> Patient
+                                        <input type="radio" name="type" value="doctor" checked> Doctor
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="submit">Sign Up</button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="content">
+                    <div class="pull-middle">
+                        <h1 class="page-header">Patients Login</h1>
+                        <p class="lead">Returning patients can log in here.</p>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <form action="#" role="form">
+                                    <div class="input-group">
+                                        <input type="email" class="form-control" placeholder="Email Address" required>
+                                        <input type="password" class="form-control" placeholder="Password" required>
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="submit">Login</button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<div class="row">
-    <div class="col-md-6">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <p><a href="/Patients" class="btn btn-primary btn-lg">I am a Patient</a></p>
+            <div class="col-md-4">
+                <div class="content">
+                    <div class="pull-middle">
+                        <h1 class="page-header">Doctors Login</h1>
+                        <p class="lead">Registered doctors can log in here.</p>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <form action="#" role="form">
+                                    <div class="input-group">
+                                        <input type="email" class="form-control" placeholder="Email Address" required>
+                                        <input type="password" class="form-control" placeholder="Password" required>
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="submit">Login</button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-6">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <p><a href="/Doctors" class="btn btn-primary btn-lg">I am a Doctor &raquo;</a></p>
-            </div>
-        </div>
-    </div>
+    </section>
+    
+
 </div>
