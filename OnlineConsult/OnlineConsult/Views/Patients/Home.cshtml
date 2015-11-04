@@ -21,6 +21,7 @@
         <th>
             Notes
         </th>
+        <th></th>
     </tr>
 
     @foreach (OnlineConsult.Models.Consult c in consultations)
@@ -29,6 +30,7 @@
             <td>@c.ScheduledTime</td>
             <td>@c.DoctorName()</td>
             <td>@c.Notes</td>
+            <td><a href="/Consults/Initiate?id=@c.UID" class="btn btn-default" role="button">Open</a></td>
         </tr>
     }
 </table>
