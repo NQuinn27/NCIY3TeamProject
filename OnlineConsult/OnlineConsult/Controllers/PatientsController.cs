@@ -191,7 +191,9 @@ namespace OnlineConsult.Controllers
 
             var patient = GetCurrentPatient();
 
-            var consulatations = db.Consultations.Where(c => c.PatientUID == patient.UID);
+            var consulatations = db.Consultations
+                .Where(c => c.PatientUID == patient.UID)
+                .OrderBy(c => c.ScheduledTime); ;
 
             ViewData["Patient"] = patient;
             ViewData["Consultations"] = consulatations;

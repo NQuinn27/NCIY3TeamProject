@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using OnlineConsult.Models;
+using Microsoft.AspNet.Identity;
 
 namespace OnlineConsult.Controllers
 {
@@ -17,6 +18,11 @@ namespace OnlineConsult.Controllers
         // GET: Consults
         public ActionResult Index()
         {
+            var patient = GetCurrentPatient();
+            if (patient != null)
+            {
+                return RedirectToAction("Home", "Patients");
+            }
             return View(db.Consultations.ToList());
         }
 
@@ -35,6 +41,45 @@ namespace OnlineConsult.Controllers
         //    return View(consult);
         //}
 
+        public ActionResult Book()
+        {
+            return View("Create");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Book([Bind(Include = "UID,PatientUID,DoctorUID,ScheduledTime,Notes")] Consult consult)
+        {
+            if (ModelState.IsValid)
+            {
+                var DoctorUID = Request["listbox"];
+                consult.DoctorUID = new Guid(DoctorUID);
+
+                var patient = GetCurrentPatient();
+                consult.PatientUID = patient.UID;
+
+                consult.UID = Guid.NewGuid();
+                db.Consultations.Add(consult);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(consult);
+        }
+
+        private Patient GetCurrentPatient()
+        {
+            string currentUserId = User.Identity.GetUserId();
+            ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == currentUserId);
+            if (currentUser == null)
+            {
+                return null;
+            }
+            string email = currentUser.Email;
+            Patient patient = db.Patients.FirstOrDefault(p => p.email == email);
+            return patient;
+        }
+
         //// GET: Consults/Create
         public ActionResult Create()
         {
@@ -50,13 +95,32 @@ namespace OnlineConsult.Controllers
         {
             if (ModelState.IsValid)
             {
+                var DoctorUID = Request["listbox"];
+                consult.DoctorUID = new Guid(DoctorUID);
+
+                var patient = GetCurrentPatient();
+                consult.PatientUID = patient.UID;
+
                 consult.UID = Guid.NewGuid();
                 db.Consultations.Add(consult);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Home", "Patients");
             }
 
             return View(consult);
+        }
+
+        public ActionResult Initiate()
+        {
+            string id = Request.Params["id"];
+            if (id == null)
+            {
+                RedirectToAction("Home", "Patients");
+            }
+            Guid consultID = new Guid(id);
+            Consult c = db.Consultations.Find(consultID);
+            ViewData["consult"] = c;
+            return View();
         }
 
         // GET: Consults/Edit/5

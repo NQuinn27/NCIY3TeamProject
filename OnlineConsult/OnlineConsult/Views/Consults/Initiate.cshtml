@@ -1,0 +1,14 @@
+﻿@model OnlineConsult.Models.Patient
+
+@{
+    ViewBag.Title = "Initiate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    OnlineConsult.Models.Consult consult = (OnlineConsult.Models.Consult)ViewData["consult"];
+}
+
+<h2>Consult</h2>
+
+<h3>Doctor Notes</h3>
+<div class="panel panel-default">
+   <p>@consult.Notes</p>
+</div>

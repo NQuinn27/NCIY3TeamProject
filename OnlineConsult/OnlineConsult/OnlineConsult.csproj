@@ -311,6 +311,7 @@
     <Content Include="Views\Consults\Edit.cshtml" />
     <Content Include="Views\Consults\Index.cshtml" />
     <Content Include="Views\Consults\DoctorListPartial.cshtml" />
+    <Content Include="Views\Consults\Initiate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
