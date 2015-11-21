@@ -18,6 +18,8 @@ namespace OnlineConsult.Models
             }
         }
         public string email { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         public DateTime signupDate { get; set; }
         public string qualifications { get; set; }
 

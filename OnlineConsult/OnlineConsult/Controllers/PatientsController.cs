@@ -73,6 +73,7 @@ namespace OnlineConsult.Controllers
 
         public ActionResult List()
         {
+            ViewData["Count"] = db.Patients.ToList().Count;
             return View(db.Patients.ToList());
         }
 
@@ -108,14 +109,14 @@ namespace OnlineConsult.Controllers
             {
                 db.Patients.Add(patient);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
 
             return View(patient);
         }
 
         // GET: Patients/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(Guid? id)
         {
             if (id == null)
             {
@@ -140,13 +141,13 @@ namespace OnlineConsult.Controllers
             {
                 db.Entry(patient).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
             return View(patient);
         }
 
         // GET: Patients/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(Guid? id)
         {
             if (id == null)
             {
@@ -163,12 +164,12 @@ namespace OnlineConsult.Controllers
         // POST: Patients/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(Guid id)
         {
             Patient patient = db.Patients.Find(id);
             db.Patients.Remove(patient);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("List");
         }
 
         protected override void Dispose(bool disposing)
