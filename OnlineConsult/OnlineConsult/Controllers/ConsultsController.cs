@@ -115,11 +115,12 @@ namespace OnlineConsult.Controllers
             string id = Request.Params["id"];
             if (id == null)
             {
-                RedirectToAction("Home", "Patients");
+                return RedirectToAction("Home", "Patients");
             }
             Guid consultID = new Guid(id);
             Consult c = db.Consultations.Find(consultID);
             ViewData["consult"] = c;
+            ViewData["doctor"] = db.Doctors.Find(c.DoctorUID);
             return View();
         }
 

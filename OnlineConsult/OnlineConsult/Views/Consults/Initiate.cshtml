@@ -4,10 +4,16 @@
     ViewBag.Title = "Initiate";
     Layout = "~/Views/Shared/_Layout.cshtml";
     OnlineConsult.Models.Consult consult = (OnlineConsult.Models.Consult)ViewData["consult"];
+    OnlineConsult.Models.Doctor d = (OnlineConsult.Models.Doctor)ViewData["doctor"];
 }
 
 <h2>Consult</h2>
-
+<h3>Your Doctor</h3>
+<div class="panel panel-default">
+    <h3>Name: @d.fullName</h3>
+    <h3>Qualifications: @d.qualifications</h3>
+    <h3>Online Consultant Since: @d.signupDate.ToString("dd MMM yyy")</h3>
+</div>
 <h3>Doctor Notes</h3>
 <div class="panel panel-default">
    <p>@consult.Notes</p>
