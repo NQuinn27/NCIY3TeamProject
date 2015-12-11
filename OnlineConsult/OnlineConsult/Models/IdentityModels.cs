@@ -36,5 +36,7 @@ namespace OnlineConsult.Models
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Role> AppRoles { get; set; }
         public DbSet<Consult> Consultations { get; set; }
+
+        public System.Data.Entity.DbSet<OnlineConsult.Models.Message> Messages { get; set; }
     }
 }

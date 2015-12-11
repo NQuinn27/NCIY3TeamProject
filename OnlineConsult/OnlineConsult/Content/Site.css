@@ -41,3 +41,21 @@ body {
 footer {
     margin: 50px 0;
 }
+
+table.messageTable {
+    width:100%;
+}
+
+tr.patientMessage {
+    background-color:forestgreen;
+    color:white;
+    text-align:right;
+    border:1px solid white;
+}
+
+tr.doctorMessage {
+    background-color:lightgray;
+    color:black;
+    text-align:left;
+    border:1px solid white;
+}

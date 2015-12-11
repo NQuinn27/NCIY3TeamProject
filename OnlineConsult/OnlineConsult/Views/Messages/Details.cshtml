@@ -1,0 +1,51 @@
+﻿@model OnlineConsult.Models.Message
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Message</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.senderID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.senderID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.recieverID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.recieverID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.read)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.read)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sentAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sentAt)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -110,18 +110,60 @@ namespace OnlineConsult.Controllers
             return View(consult);
         }
 
-        public ActionResult Initiate()
+        public ActionResult Initiate(string ident)
         {
             string id = Request.Params["id"];
             if (id == null)
             {
-                return RedirectToAction("Home", "Patients");
+                if (ident == null)
+                {
+                    return RedirectToAction("Home", "Patients");
+                }
+                id = ident;
             }
             Guid consultID = new Guid(id);
             Consult c = db.Consultations.Find(consultID);
             ViewData["consult"] = c;
+            var doctor = db.Doctors.Find(c.DoctorUID);
             ViewData["doctor"] = db.Doctors.Find(c.DoctorUID);
+            var patient = GetCurrentPatient();
+            ViewData["patient_id"] = patient.UID;
+            ViewData["doctor_id"] = doctor.UID;
+            var sent_messages = db.Messages.Where(m => m.senderID == patient.UID)
+                .Where(m => m.recieverID == doctor.UID)
+                .Where(m => m.consultId == c.UID)
+                .OrderBy(m => m.sentAt);
+            var recieved_messages = db.Messages.Where(m => m.senderID == doctor.UID)
+                .Where(m => m.recieverID == patient.UID)
+                .Where(m => m.consultId == c.UID)
+                .OrderBy(m => m.sentAt);
+            var all_messages = sent_messages.Concat(recieved_messages).ToArray();
+            var sorted = all_messages.OrderBy(m => m.sentAt).ToList();
+            ViewData["messages"] = sorted;
+            ViewData["consult_id"] = c.UID;
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateMessage(string message, Guid consultId, Guid doctorId, Guid patientId)
+        {
+            var newMessage = new Message();
+            newMessage.text = message;
+            newMessage.consultId = consultId;
+            newMessage.senderID = patientId;
+            newMessage.recieverID = doctorId;
+            newMessage.sentAt = DateTime.Now;
+            db.Messages.Add(newMessage);
+
+            var response = new Message();
+            response.text = "a quick response";
+            response.consultId = consultId;
+            response.senderID = doctorId;
+            response.recieverID = patientId;
+            response.sentAt = DateTime.Now;
+            db.Messages.Add(response);
+            db.SaveChanges();
+            return Redirect($"/Consults/Initiate?id={consultId}");
         }
 
         // GET: Consults/Edit/5

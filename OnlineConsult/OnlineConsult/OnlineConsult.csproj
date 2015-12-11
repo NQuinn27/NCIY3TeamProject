@@ -173,14 +173,27 @@
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\testModelsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="MigApp\201511210011418_SEED_DATA_DOCS.cs" />
-    <Compile Include="MigApp\201511210011418_SEED_DATA_DOCS.Designer.cs">
-      <DependentUpon>201511210011418_SEED_DATA_DOCS.cs</DependentUpon>
+    <Compile Include="MigApp\201512110000458_WEB.cs" />
+    <Compile Include="MigApp\201512110000458_WEB.Designer.cs">
+      <DependentUpon>201512110000458_WEB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MigApp\201512110045424_add_message.cs" />
+    <Compile Include="MigApp\201512110045424_add_message.Designer.cs">
+      <DependentUpon>201512110045424_add_message.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MigApp\201512110115013_add_message_param_consult_id.cs" />
+    <Compile Include="MigApp\201512110115013_add_message_param_consult_id.Designer.cs">
+      <DependentUpon>201512110115013_add_message_param_consult_id.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MigApp\201512110126033_add_message_param_text.cs" />
+    <Compile Include="MigApp\201512110126033_add_message_param_text.Designer.cs">
+      <DependentUpon>201512110126033_add_message_param_text.cs</DependentUpon>
     </Compile>
     <Compile Include="MigApp\Configuration.cs" />
     <Compile Include="Migrations\201510251315431_InitialCreate.cs" />
@@ -198,6 +211,7 @@
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Message.cs" />
     <Compile Include="Models\OCDbContext.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\PatientRegisterViewModel.cs" />
@@ -215,6 +229,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\OnlineConsult - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -290,6 +305,12 @@
     <Content Include="Views\Consults\DoctorListPartial.cshtml" />
     <Content Include="Views\Consults\Initiate.cshtml" />
     <Content Include="Views\Gallery\Index.cshtml" />
+    <Content Include="Views\Messages\Create.cshtml" />
+    <Content Include="Views\Messages\Delete.cshtml" />
+    <Content Include="Views\Messages\Details.cshtml" />
+    <Content Include="Views\Messages\Edit.cshtml" />
+    <Content Include="Views\Messages\Index.cshtml" />
+    <Content Include="Views\Consults\ConsultsMessagesPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -303,8 +324,17 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MigApp\201511210011418_SEED_DATA_DOCS.resx">
-      <DependentUpon>201511210011418_SEED_DATA_DOCS.cs</DependentUpon>
+    <EmbeddedResource Include="MigApp\201512110000458_WEB.resx">
+      <DependentUpon>201512110000458_WEB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MigApp\201512110045424_add_message.resx">
+      <DependentUpon>201512110045424_add_message.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MigApp\201512110115013_add_message_param_consult_id.resx">
+      <DependentUpon>201512110115013_add_message_param_consult_id.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MigApp\201512110126033_add_message_param_text.resx">
+      <DependentUpon>201512110126033_add_message_param_text.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510251315431_InitialCreate.resx">
       <DependentUpon>201510251315431_InitialCreate.cs</DependentUpon>
@@ -312,6 +342,9 @@
     <EmbeddedResource Include="Migrations\201510251323235_Seed1.resx">
       <DependentUpon>201510251323235_Seed1.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

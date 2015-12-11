@@ -1,0 +1,30 @@
+﻿@{ 
+    Guid user_id = (Guid)ViewData["patient_id"];
+    var doctor_id = ViewData["doctor_id"];
+    var consultId = ViewData["consult_id"];
+ }
+
+<table class="messageTable">
+    @foreach (var message in (IEnumerable<OnlineConsult.Models.Message>)ViewData["messages"])
+    {
+        if (message.senderID == user_id)
+        {
+            <tr class="patientMessage">
+                <td>@message.text</td>
+            </tr>
+        }
+        else
+        {
+            <tr class="doctorMessage">
+                <td>@message.text</td>
+            </tr>
+        }
+    }
+</table>
+<form id='message_create_form' action='@Url.Action("CreateMessage","Consults")' method="POST">
+    @Html.TextBox("message")
+    <input type="hidden" value="@doctor_id" name="doctorId"/>
+    <input type="hidden" value="@user_id" name="patientId"/>
+    <input type="hidden" value="@consultId" name="consultId" />
+    <input type="submit" value="Send"/>
+</form>

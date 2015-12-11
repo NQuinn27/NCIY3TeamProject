@@ -7,13 +7,13 @@ namespace OnlineConsult.MigApp
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class SEED_DATA_DOCS : IMigrationMetadata
+    public sealed partial class add_message_param_text : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(SEED_DATA_DOCS));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(add_message_param_text));
         
         string IMigrationMetadata.Id
         {
-            get { return "201511210011418_SEED_DATA_DOCS"; }
+            get { return "201512110126033_add_message_param_text"; }
         }
         
         string IMigrationMetadata.Source

@@ -23,6 +23,11 @@ namespace OnlineConsult
                 name: "Patients",
                 url: "{controller}/{action}/{name}/{id}"    
             );
+
+            routes.MapRoute(
+                name: "Consults",
+                url: "{controller}/{action}/{name}/{id}"
+            );
         }
     }
 }
