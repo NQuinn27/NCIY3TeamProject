@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using OnlineConsult.Models;
+using Microsoft.AspNet.Identity;
 
 namespace OnlineConsult.Controllers
 {
@@ -17,7 +18,12 @@ namespace OnlineConsult.Controllers
         // GET: Doctors
         public ActionResult Index()
         {
-            return View();
+            var doctor = GetCurrentDoctor();
+            if (doctor != null)
+            {
+                return RedirectToAction("Home");
+            }
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: Doctors/Details/5
@@ -33,6 +39,40 @@ namespace OnlineConsult.Controllers
                 return HttpNotFound();
             }
             return View(doctor);
+        }
+
+        //GET Patients/Home
+        public ActionResult Home()
+        {
+            bool val1 = System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
+            if (val1 == false)
+            {
+                RedirectToAction("Home", "Index");
+            }
+
+            var doctor = GetCurrentDoctor();
+
+            var consulatations = db.Consultations
+                .Where(c => c.DoctorUID == doctor.UID)
+                .OrderBy(c => c.ScheduledTime);
+
+            ViewData["Doctor"] = doctor;
+            ViewData["Consultations"] = consulatations;
+            return View();
+
+        }
+
+        private Doctor GetCurrentDoctor()
+        {
+            string currentUserId = User.Identity.GetUserId();
+            ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == currentUserId);
+            if (currentUser == null)
+            {
+                return null;
+            }
+            string email = currentUser.Email;
+            Doctor doctor = db.Doctors.FirstOrDefault(p => p.email == email);
+            return doctor;
         }
 
         // GET: Doctors/Create

@@ -1,0 +1,29 @@
+﻿@model OnlineConsult.Models.Patient
+
+@{
+    ViewBag.Title = "Initiate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    OnlineConsult.Models.Consult consult = (OnlineConsult.Models.Consult)ViewData["consult"];
+    OnlineConsult.Models.Patient p = (OnlineConsult.Models.Patient)ViewData["patient"];
+}
+
+<h2>Consult</h2>
+<h3>Your Patient</h3>
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <h3>Name: @p.firstName</h3>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            @Html.Partial("DoctorConsultMessagesPartial", ViewData);
+        </div>
+    </div>
+</div>
+<div class="row">
+    <h3>Consult Notes</h3>
+    <div class="panel panel-default">
+        <p>@consult.Notes</p>
+    </div>
+</div>

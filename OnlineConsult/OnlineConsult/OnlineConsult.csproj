@@ -313,6 +313,10 @@
     <Content Include="Views\Admin\PatientsPartial.cshtml" />
     <Content Include="Views\Admin\DoctorsPartial.cshtml" />
     <Content Include="Views\Admin\ICD10Partial.cshtml" />
+    <Content Include="Views\Doctors\Home.cshtml" />
+    <Content Include="Views\Consults\InitiateAsPatient.cshtml" />
+    <Content Include="Views\Consults\InitiateAsDoctor.cshtml" />
+    <Content Include="Views\Consults\DoctorConsultMessagesPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

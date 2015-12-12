@@ -32,5 +32,17 @@ namespace OnlineConsult.Models
             }
             return String.Format("{0}",DoctorUID);
         }
+
+        public string PatientName()
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            Patient d = db.Patients.Find(PatientUID);
+            if (d != null)
+            {
+                String s = String.Format("{0} {1}", d.firstName, d.lastName);
+                return s;
+            }
+            return String.Format("{0}", PatientUID);
+        }
     }
 }

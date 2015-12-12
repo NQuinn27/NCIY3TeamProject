@@ -1,0 +1,39 @@
+﻿@model OnlineConsult.Models.Doctor
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    OnlineConsult.Models.Doctor p = (OnlineConsult.Models.Doctor)ViewData["Doctor"];
+    var name = ViewData["patientName"];
+    IEnumerable<OnlineConsult.Models.Consult> consultations = (IEnumerable<OnlineConsult.Models.Consult>)ViewData["Consultations"];
+}
+
+<h1>Hello, @Html.DisplayFor(Model => p.firstName)</h1>
+
+@* Display all of the upcoming consultations for the user *@
+<h2>Your Upcoming Consultations</h2>
+<table class="table">
+    <tr>
+        <th>
+            Date
+        </th>
+        <th>
+            Patient ID
+        </th>
+        <th>
+            Notes
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (OnlineConsult.Models.Consult c in consultations)
+    {
+        <tr>
+            <td>@c.ScheduledTime</td>
+            <td>@c.PatientName()</td>
+            <td>@c.Notes</td>
+            <td><a href="/Consults/Initiate?id=@c.UID" class="btn btn-default" role="button">Open</a></td>
+        </tr>
+    }
+</table>
+<p><a href="/Consults/Book" class="btn btn-primary btn-lg">Book a Consult</a></p>
+

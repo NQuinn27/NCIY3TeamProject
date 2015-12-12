@@ -117,10 +117,23 @@ namespace OnlineConsult.Controllers
             {
                 if (ident == null)
                 {
-                    return RedirectToAction("Home", "Patients");
+                    return RedirectToAction("Index", "Home");
                 }
                 id = ident;
             }
+            if (GetCurrentPatient() != null)
+            {
+                return InitiateAsPatient(id);
+            }
+            if (GetCurrentDoctor() != null)
+            {
+                return InitiateAsDoctor(id);
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult InitiateAsPatient(string id)
+        {
             Guid consultID = new Guid(id);
             Consult c = db.Consultations.Find(consultID);
             ViewData["consult"] = c;
@@ -141,27 +154,58 @@ namespace OnlineConsult.Controllers
             var sorted = all_messages.OrderBy(m => m.sentAt).ToList();
             ViewData["messages"] = sorted;
             ViewData["consult_id"] = c.UID;
-            return View();
+            return View("InitiateAsPatient");
+        }
+
+        public ActionResult InitiateAsDoctor(string id)
+        {
+            Guid consultID = new Guid(id);
+            Consult c = db.Consultations.Find(consultID);
+            ViewData["consult"] = c;
+            var doctor = GetCurrentDoctor();
+            ViewData["doctor"] = doctor;
+            var patient = db.Patients.FirstOrDefault(p => p.UID == c.PatientUID);
+            ViewData["patient"] = patient;
+            ViewData["patient_id"] = patient.UID;
+            ViewData["doctor_id"] = doctor.UID;
+            var sent_messages = db.Messages.Where(m => m.senderID == doctor.UID)
+                .Where(m => m.recieverID == patient.UID)
+                .Where(m => m.consultId == c.UID)
+                .OrderBy(m => m.sentAt);
+            var recieved_messages = db.Messages.Where(m => m.senderID == patient.UID)
+                .Where(m => m.recieverID == doctor.UID)
+                .Where(m => m.consultId == c.UID)
+                .OrderBy(m => m.sentAt);
+            var all_messages = sent_messages.Concat(recieved_messages).ToArray();
+            var sorted = all_messages.OrderBy(m => m.sentAt).ToList();
+            ViewData["messages"] = sorted;
+            ViewData["consult_id"] = c.UID;
+            return View("InitiateAsDoctor");
+        }
+
+        private Doctor GetCurrentDoctor()
+        {
+            string currentUserId = User.Identity.GetUserId();
+            ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == currentUserId);
+            if (currentUser == null)
+            {
+                return null;
+            }
+            string email = currentUser.Email;
+            Doctor doctor = db.Doctors.FirstOrDefault(p => p.email == email);
+            return doctor;
         }
 
         [HttpPost]
-        public ActionResult CreateMessage(string message, Guid consultId, Guid doctorId, Guid patientId)
+        public ActionResult CreateMessage(string message, Guid consultId, Guid recieverId, Guid senderId)
         {
             var newMessage = new Message();
             newMessage.text = message;
             newMessage.consultId = consultId;
-            newMessage.senderID = patientId;
-            newMessage.recieverID = doctorId;
+            newMessage.senderID = senderId;
+            newMessage.recieverID = recieverId;
             newMessage.sentAt = DateTime.Now;
             db.Messages.Add(newMessage);
-
-            var response = new Message();
-            response.text = "a quick response";
-            response.consultId = consultId;
-            response.senderID = doctorId;
-            response.recieverID = patientId;
-            response.sentAt = DateTime.Now;
-            db.Messages.Add(response);
             db.SaveChanges();
             return Redirect($"/Consults/Initiate?id={consultId}");
         }

@@ -1,8 +1,9 @@
-﻿@{ 
-    Guid user_id = (Guid)ViewData["patient_id"];
+﻿@{
+    Guid user_id = (Guid)ViewData["doctor_id"];
+    Guid patient_id = (Guid)ViewData["patient_id"];
     var doctor_id = ViewData["doctor_id"];
     var consultId = ViewData["consult_id"];
- }
+}
 
 <table class="messageTable">
     @foreach (var message in (IEnumerable<OnlineConsult.Models.Message>)ViewData["messages"])
@@ -23,8 +24,9 @@
 </table>
 <form id='message_create_form' action='@Url.Action("CreateMessage","Consults")' method="POST">
     @Html.TextBox("message")
-    <input type="hidden" value="@doctor_id" name="recieverId"/>
-    <input type="hidden" value="@user_id" name="senderId"/>
+    <input type="hidden" value="@user_id" name="senderId" />
+    <input type="hidden" value="@patient_id" name="recieverId" />
     <input type="hidden" value="@consultId" name="consultId" />
-    <input type="submit" value="Send"/>
+    <input type="submit" value="Send" />
 </form>
+
