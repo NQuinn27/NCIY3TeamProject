@@ -1,0 +1,27 @@
+﻿@model IEnumerable<OnlineConsult.Models.Doctor>
+
+@foreach (OnlineConsult.Models.Doctor item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.firstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.signupDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.qualifications)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.UID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.UID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.UID })
+        </td>
+    </tr>
+}

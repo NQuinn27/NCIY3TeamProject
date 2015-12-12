@@ -1,0 +1,24 @@
+﻿@model IEnumerable<OnlineConsult.Models.ICD10>
+
+@foreach (OnlineConsult.Models.ICD10 item in Model)
+{
+    <tr>
+        <td class="ailments">
+            @Html.DisplayFor(modelItem => item.code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.additional)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        </td>
+    </tr>
+}
+
+    
+

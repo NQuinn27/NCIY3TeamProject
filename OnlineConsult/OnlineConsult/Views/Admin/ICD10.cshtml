@@ -1,0 +1,50 @@
+﻿@model IEnumerable<OnlineConsult.Models.ICD10>
+@{
+    ViewBag.Title = "ICD10";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int count = (int)ViewData["Count"];
+
+    AjaxOptions options = new AjaxOptions
+    {
+        UpdateTargetId = "searchResult",
+        Confirm = "Are you sure to start search?",
+        InsertionMode = InsertionMode.Replace,
+        LoadingElementId = "divLoading"
+    };
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+<h2>Ailments</h2>
+<h2>List</h2>
+<h2>@count ICD10 Entries in the Database</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Ajax.BeginForm("SearchAilments", options))
+{
+    <div id="divLoading" style="color:red;width:200px;background-color:yellow;font-size:larger;display:none;position:absolute;">Loading ....</div>
+    <div>
+        @Html.TextBox("keyword")
+        <button type="submit">Search</button>
+    </div>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Description</th>
+            <th>Additional</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="searchResult">
+        @Html.Action("SearchAilments", new { keyword = "" })
+    </tbody>
+</table>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

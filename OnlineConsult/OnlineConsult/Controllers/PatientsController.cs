@@ -263,7 +263,8 @@ namespace OnlineConsult.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(appUser, isPersistent: false, rememberBrowser: false);
-
+                    var patientRole = db.AppRoles.FirstOrDefault(r => r.ID == 3);
+                    appUser.AppRole = patientRole;
                     //Now we have an app user created, we can continue to create the Patient
                     var patient = new Patient(model.FirstName, model.LastName, model.Email, model.DateOfBirth, model.Gender);
                     if (patient != null)

@@ -59,3 +59,11 @@ tr.doctorMessage {
     text-align:left;
     border:1px solid white;
 }
+
+th.ailments {
+    max-width: 20%;
+}
+
+td.ailments {
+    max-width:20%;
+}

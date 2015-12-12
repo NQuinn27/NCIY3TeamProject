@@ -168,10 +168,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ConsultsController.cs" />
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ICD10Controller.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
@@ -179,21 +181,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="MigApp\201512110000458_WEB.cs" />
-    <Compile Include="MigApp\201512110000458_WEB.Designer.cs">
-      <DependentUpon>201512110000458_WEB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MigApp\201512110045424_add_message.cs" />
-    <Compile Include="MigApp\201512110045424_add_message.Designer.cs">
-      <DependentUpon>201512110045424_add_message.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MigApp\201512110115013_add_message_param_consult_id.cs" />
-    <Compile Include="MigApp\201512110115013_add_message_param_consult_id.Designer.cs">
-      <DependentUpon>201512110115013_add_message_param_consult_id.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MigApp\201512110126033_add_message_param_text.cs" />
-    <Compile Include="MigApp\201512110126033_add_message_param_text.Designer.cs">
-      <DependentUpon>201512110126033_add_message_param_text.cs</DependentUpon>
+    <Compile Include="MigApp\201512112248099_add_icd10.cs" />
+    <Compile Include="MigApp\201512112248099_add_icd10.Designer.cs">
+      <DependentUpon>201512112248099_add_icd10.cs</DependentUpon>
     </Compile>
     <Compile Include="MigApp\Configuration.cs" />
     <Compile Include="Migrations\201510251315431_InitialCreate.cs" />
@@ -209,6 +199,7 @@
     <Compile Include="Models\Consult.cs" />
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\Enums.cs" />
+    <Compile Include="Models\ICD10.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Message.cs" />
@@ -234,6 +225,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -311,6 +304,19 @@
     <Content Include="Views\Messages\Edit.cshtml" />
     <Content Include="Views\Messages\Index.cshtml" />
     <Content Include="Views\Consults\ConsultsMessagesPartial.cshtml" />
+    <Content Include="Views\Shared\Unauthorized.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Patients.cshtml" />
+    <Content Include="Views\Admin\Doctors.cshtml" />
+    <Content Include="Views\Admin\ICD10.cshtml" />
+    <Content Include="Views\ICD10\Create.cshtml" />
+    <Content Include="Views\ICD10\Delete.cshtml" />
+    <Content Include="Views\ICD10\Details.cshtml" />
+    <Content Include="Views\ICD10\Edit.cshtml" />
+    <Content Include="Views\ICD10\Index.cshtml" />
+    <Content Include="Views\Admin\SearchAilments.cshtml" />
+    <Content Include="Views\Admin\SearchDoctors.cshtml" />
+    <Content Include="Views\Admin\SearchPatients.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -324,17 +330,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MigApp\201512110000458_WEB.resx">
-      <DependentUpon>201512110000458_WEB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MigApp\201512110045424_add_message.resx">
-      <DependentUpon>201512110045424_add_message.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MigApp\201512110115013_add_message_param_consult_id.resx">
-      <DependentUpon>201512110115013_add_message_param_consult_id.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MigApp\201512110126033_add_message_param_text.resx">
-      <DependentUpon>201512110126033_add_message_param_text.cs</DependentUpon>
+    <EmbeddedResource Include="MigApp\201512112248099_add_icd10.resx">
+      <DependentUpon>201512112248099_add_icd10.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510251315431_InitialCreate.resx">
       <DependentUpon>201510251315431_InitialCreate.cs</DependentUpon>

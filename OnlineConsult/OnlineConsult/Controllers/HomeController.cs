@@ -18,7 +18,18 @@ namespace OnlineConsult.Controllers
             {
                 return RedirectToAction("Home","Patients");
             }
-            return View();
+            var doctor = GetCurrentDoctor();
+            if (doctor != null)
+            {
+                return RedirectToAction("Home", "Doctors");
+            }
+            var user = getCurrentUser();
+            if (user == null)
+            {
+                return View();
+            }
+            //if we are this far we know its an admin
+            return RedirectToAction("Index", "Admin");
         }
 
         public ActionResult About()
@@ -35,6 +46,17 @@ namespace OnlineConsult.Controllers
             return View();
         }
 
+        private ApplicationUser getCurrentUser()
+        {
+            string currentUserId = User.Identity.GetUserId();
+            if (currentUserId == null)
+            {
+                return null;
+            }
+            ApplicationUser appUser = db.Users.FirstOrDefault(u => u.Id == currentUserId);
+            return appUser;
+        }
+
         private Patient GetCurrentPatient()
         {
             string currentUserId = User.Identity.GetUserId();
@@ -47,5 +69,19 @@ namespace OnlineConsult.Controllers
             Patient patient = db.Patients.FirstOrDefault(p => p.email == email);
             return patient;
         }
+
+        private Doctor GetCurrentDoctor()
+        {
+            string currentUserId = User.Identity.GetUserId();
+            ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == currentUserId);
+            if (currentUser == null)
+            {
+                return null;
+            }
+            string email = currentUser.Email;
+            Doctor doctor = db.Doctors.FirstOrDefault(p => p.email == email);
+            return doctor;
+        }
+
     }
 }
