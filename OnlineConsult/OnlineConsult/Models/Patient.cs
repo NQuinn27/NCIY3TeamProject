@@ -12,6 +12,9 @@ namespace OnlineConsult.Models
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string email { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime dateOfBirth { get; set; }
         public DateTime signupDate { get; set; }
         public Gender gender { get; set; }

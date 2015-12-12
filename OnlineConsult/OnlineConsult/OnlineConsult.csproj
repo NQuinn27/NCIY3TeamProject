@@ -181,18 +181,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="MigApp\201512112248099_add_icd10.cs" />
-    <Compile Include="MigApp\201512112248099_add_icd10.Designer.cs">
-      <DependentUpon>201512112248099_add_icd10.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MigApp\Configuration.cs" />
-    <Compile Include="Migrations\201510251315431_InitialCreate.cs" />
-    <Compile Include="Migrations\201510251315431_InitialCreate.Designer.cs">
-      <DependentUpon>201510251315431_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510251323235_Seed1.cs" />
-    <Compile Include="Migrations\201510251323235_Seed1.Designer.cs">
-      <DependentUpon>201510251323235_Seed1.cs</DependentUpon>
+    <Compile Include="MigApp\201512120317493_seed.cs" />
+    <Compile Include="MigApp\201512120317493_seed.Designer.cs">
+      <DependentUpon>201512120317493_seed.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -221,6 +212,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\OnlineConsult - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\OnlineConsult.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -317,6 +309,10 @@
     <Content Include="Views\Admin\SearchAilments.cshtml" />
     <Content Include="Views\Admin\SearchDoctors.cshtml" />
     <Content Include="Views\Admin\SearchPatients.cshtml" />
+    <Content Include="Views\Home\LoginPartial.cshtml" />
+    <Content Include="Views\Admin\PatientsPartial.cshtml" />
+    <Content Include="Views\Admin\DoctorsPartial.cshtml" />
+    <Content Include="Views\Admin\ICD10Partial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -330,18 +326,12 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MigApp\201512112248099_add_icd10.resx">
-      <DependentUpon>201512112248099_add_icd10.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510251315431_InitialCreate.resx">
-      <DependentUpon>201510251315431_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510251323235_Seed1.resx">
-      <DependentUpon>201510251323235_Seed1.cs</DependentUpon>
-    </EmbeddedResource>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
+    <EmbeddedResource Include="MigApp\201512120317493_seed.resx">
+      <DependentUpon>201512120317493_seed.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

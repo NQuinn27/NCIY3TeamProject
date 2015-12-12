@@ -3,7 +3,7 @@ namespace OnlineConsult.MigApp
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class addAllAgain : DbMigration
+    public partial class seed : DbMigration
     {
         public override void Up()
         {

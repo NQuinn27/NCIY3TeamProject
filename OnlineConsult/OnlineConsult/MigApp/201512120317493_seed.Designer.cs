@@ -7,13 +7,13 @@ namespace OnlineConsult.MigApp
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class add_guid_id : IMigrationMetadata
+    public sealed partial class seed : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(add_guid_id));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(seed));
         
         string IMigrationMetadata.Id
         {
-            get { return "201511011811443_add_guid_id"; }
+            get { return "201512120317493_seed"; }
         }
         
         string IMigrationMetadata.Source

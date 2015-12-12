@@ -17,7 +17,7 @@ namespace OnlineConsult.Controllers
         // GET: Doctors
         public ActionResult Index()
         {
-            return View(db.Doctors.ToList());
+            return View();
         }
 
         // GET: Doctors/Details/5

@@ -54,52 +54,28 @@
     
     <section>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="content">
                     <div class="pull-middle">
                         <h1 class="page-header">New Users</h1>
-                        <p class="lead">New doctors or patients can signup below.</p>
+                        <p class="lead">New patients can signup below.</p>
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <!--Patient Signup-->
-                                <p><a href="/Patients" class="btn btn-primary btn-lg">I am a Patient</a></p>
-                                <!--Doctor Signup-->
-                                <p><a href="/Doctors" class="btn btn-primary btn-lg">I am a Doctor</a></p>
+                                <p><a href="/Patients" class="btn btn-primary btn-lg">Sign Up</a></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="content">
                     <div class="pull-middle">
-                        <h1 class="page-header">Patients Login</h1>
+                        <h1 class="page-header">Login</h1>
                         <p class="lead">Returning patients can log in here.</p>
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                @Html.Partial("~/Views/Patients/PatientLoginPartial.cshtml")
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="content">
-                    <div class="pull-middle">
-                        <h1 class="page-header">Doctors Login</h1>
-                        <p class="lead">Registered doctors can log in here.</p>
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <form action="#" role="form">
-                                    <div class="input-group">
-                                        <input type="email" class="form-control" placeholder="Email Address" required>
-                                        <input type="password" class="form-control" placeholder="Password" required>
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default" type="submit">Login</button>
-                                        </span>
-                                    </div>
-                                </form>
+                                @Html.Partial("LoginPartial")
                             </div>
                         </div>
                     </div>

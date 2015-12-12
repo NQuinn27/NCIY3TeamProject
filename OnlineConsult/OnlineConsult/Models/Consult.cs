@@ -15,7 +15,6 @@ namespace OnlineConsult.Models
         public DateTime ScheduledTime { get; set; }
 
         public String Notes { get; set; }
-        
 
         public Consult()
         {

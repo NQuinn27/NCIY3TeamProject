@@ -14,6 +14,7 @@ namespace OnlineConsult.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Admin
+        [OutputCache(Duration = 3600, VaryByParam = "none")]
         public ActionResult Index()
         {
 
@@ -25,11 +26,13 @@ namespace OnlineConsult.Controllers
             return View();
         }
 
+        [OutputCache(Duration = 3600, VaryByParam = "none")]
         public ActionResult Patients()
         {
             ViewData["Count"] = db.Patients.ToList().Count;
             return View(db.Patients.ToList());
         }
+
         public PartialViewResult SearchPatients(string keyword)
         {
             // System.Threading.Thread.Sleep(2000);
@@ -41,7 +44,7 @@ namespace OnlineConsult.Controllers
             return PartialView(sortedList);
         }
 
-
+        [OutputCache(Duration = 3600, VaryByParam = "none")]
         public ActionResult ICD10()
         {
             ViewData["Count"] = db.Ailments.ToList().Count;
@@ -59,6 +62,7 @@ namespace OnlineConsult.Controllers
             return PartialView(sortedList);
         }
 
+        [OutputCache(Duration = 3600, VaryByParam = "none")]
         public ActionResult Doctors()
         {
             ViewData["Count"] = db.Doctors.ToList().Count;

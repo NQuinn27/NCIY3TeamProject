@@ -31,6 +31,8 @@ namespace OnlineConsult.Models
         public string LastName { get; set; }
 
         [Required]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Date of Birth")]
         public DateTime DateOfBirth { get; set; }
 

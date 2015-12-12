@@ -21,7 +21,7 @@ namespace OnlineConsult.Controllers
             var doctor = GetCurrentDoctor();
             if (doctor != null)
             {
-                return RedirectToAction("Home", "Doctors");
+                return RedirectToAction("Index", "Doctors");
             }
             var user = getCurrentUser();
             if (user == null)
