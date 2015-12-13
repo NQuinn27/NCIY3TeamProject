@@ -1,6 +1,8 @@
 # NCIY3TeamProject
 Team project and databases project for Year 3 BSHCE at NCI
 
+This project is deployed via [Microsoft Azure](https://onlineconsult.azurewebsites.net). If you wish to run this locally, follow the steps below to get your environment set up.
+
 ### Contribution
 Perform all changes on a branch, and file a pull request when finished. Keep the branches to one or two items to ensure a painless merge.
 
